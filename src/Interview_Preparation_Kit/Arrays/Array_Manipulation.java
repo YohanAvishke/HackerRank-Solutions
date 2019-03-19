@@ -1,4 +1,4 @@
-package Algorithms.Implementation;
+package Interview_Preparation_Kit.Arrays;
 
 import java.io.*;
 import java.util.*;
