@@ -6,7 +6,6 @@ import java.util.*;
 public class Java_Currency_Formatter {
 
     public static void main(String[] args) {
-        /* Read input */
         Scanner scanner = new Scanner(System.in);
         double payment = scanner.nextDouble();
         scanner.close();
@@ -17,7 +16,7 @@ public class Java_Currency_Formatter {
         NumberFormat india  = NumberFormat.getCurrencyInstance(indiaLocale);
         NumberFormat china  = NumberFormat.getCurrencyInstance(Locale.CHINA);
         NumberFormat france = NumberFormat.getCurrencyInstance(Locale.FRANCE);
-        
+
         System.out.println("US: "     + us.format(payment));
         System.out.println("India: "  + india.format(payment));
         System.out.println("China: "  + china.format(payment));
