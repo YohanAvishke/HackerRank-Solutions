@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Left_Rotation {
     public static void main(String[] args) throws IOException {
-        String fileName = System.getProperty("user.dir") + "/Inputs/Left_Rotation_Input.txt";
+        String fileName = System.getProperty("user.dir") + "/IO/Left_Rotation_Input.txt";
         BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
 
         String config = bufferedReader.readLine();//first line
