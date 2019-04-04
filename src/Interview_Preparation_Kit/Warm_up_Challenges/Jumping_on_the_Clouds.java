@@ -11,7 +11,12 @@ public class Jumping_on_the_Clouds {
         int curentCloud = 0;//to get current position
         while (curentCloud < c.length-1) {
             int i = c[curentCloud + 1];//first possible jump
-            int j = c[curentCloud + 2];//second possible jump
+            int j ;//second possible jump
+            if (curentCloud + 2 < c.length){
+                j = c[curentCloud + 2];
+            }else {
+                j = 1;
+            }
 
             //check which possibility is do able
             if (j == 0){
