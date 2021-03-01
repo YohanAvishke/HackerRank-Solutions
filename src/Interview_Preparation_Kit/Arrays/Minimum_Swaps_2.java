@@ -7,23 +7,26 @@ public class Minimum_Swaps_2 {
         Scanner input = new Scanner(System.in);
         int n = input.nextInt();
         int[] arr = new int[n];
-        int count = 0;
+        int count = 0, j;
+        boolean[] visitArray = new boolean[n];
 
         for (int i = 0; i < n; i++) arr[i] = input.nextInt();
 
         for (int i = 0; i < n; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++)
-                if (arr[j] < arr[minIndex])
-                    minIndex = j;
-
-            if (minIndex != i) {
-                int temp = arr[minIndex];
-                arr[minIndex] = arr[i];
-                arr[i] = temp;
-                count++;
+            if(visitArray[i]) {
+                continue;
+            }
+            else {
+                j = i;
+                while(!visitArray[j]) {
+                    visitArray[j] = true;
+                    count++;
+                    j = arr[j]-1;
+                }
+                count--;
             }
         }
+        
         System.out.println(count);
     }
 }
