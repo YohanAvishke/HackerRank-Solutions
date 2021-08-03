@@ -11,20 +11,37 @@ public class Minimum_Swaps_2 {
 
         for (int i = 0; i < n; i++) arr[i] = input.nextInt();
 
-        for (int i = 0; i < n; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++)
-                if (arr[j] < arr[minIndex])
-                    minIndex = j;
+        // Selection  Sorting
+        //        for (int i = 0; i < n; i++) {
+        //            if (arr[i] != i + 1) {
+        //                int smallestIndex = i;
+        //
+        //                for (int j = i + 1; j < n; j++) {
+        //                    if (arr[i] > arr[j]) {
+        //                        smallestIndex = j;
+        //                    }
+        //                }
+        //
+        //                int tmp = arr[i];
+        //                arr[i] = arr[smallestIndex];
+        //                arr[smallestIndex] = tmp;
+        //                count++;
+        //            }
+        //        }
 
-            if (minIndex != i) {
-                int temp = arr[minIndex];
-                arr[minIndex] = arr[i];
-                arr[i] = temp;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != i + 1) {
+                int j = i + 1;
+                while (arr[j] != i + 1) {
+                    j++;
+                }
+                int tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
                 count++;
             }
         }
+
         System.out.println(count);
     }
 }
-
