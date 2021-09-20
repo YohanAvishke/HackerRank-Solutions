@@ -30,29 +30,6 @@ class MagazineWord {
 	}
 }
 
-class Result {
-	public static void checkMagazine(List<String> magazineWords, List<String> noteWords) {
-		Map<String, MagazineWord> magazineMap = new HashMap<>();
-		for (String word : magazineWords) {
-			try {
-				magazineMap.get(word).increment();
-			} catch (NullPointerException e) {
-				MagazineWord wordObj = new MagazineWord(word);
-				magazineMap.put(wordObj.getWord(), wordObj);
-			}
-		}
-
-		for (String word : noteWords) {
-			try {
-				magazineMap.get(word).decrement();
-			} catch (Exception e) {
-				System.out.println("No");
-				System.exit(0);
-			}
-		}
-		System.out.println("Yes");
-	}
-}
 
 public class RansomNote {
 	public static void main(String[] args) throws IOException {
@@ -73,8 +50,30 @@ public class RansomNote {
 						.readLine()
 						.replaceAll("\\s+$", "")
 						.split(" ")).collect(toList());
-		Result.checkMagazine(magazine, note);
+		checkMagazine(magazine, note);
 		bufferedReader.close();
+	}
+
+	public static void checkMagazine(List<String> magazineWords, List<String> noteWords) {
+		Map<String, MagazineWord> magazineMap = new HashMap<>();
+		for (String word : magazineWords) {
+			try {
+				magazineMap.get(word).increment();
+			} catch (NullPointerException e) {
+				MagazineWord wordObj = new MagazineWord(word);
+				magazineMap.put(wordObj.getWord(), wordObj);
+			}
+		}
+
+		for (String word : noteWords) {
+			try {
+				magazineMap.get(word).decrement();
+			} catch (Exception e) {
+				System.out.println("No");
+				System.exit(0);
+			}
+		}
+		System.out.println("Yes");
 	}
 }
 
